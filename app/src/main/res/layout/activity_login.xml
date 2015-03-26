@@ -1,0 +1,180 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/main_bg"
+                tools:context="com.song.firstproject.LoginActivity">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#00f"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/login_linearLayout_top"></LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/linearlayout_border"
+        android:layout_below="@+id/login_linearLayout_top"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/login_linearLayout_editusername">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/regis_mail"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:background="@null"
+                android:layout_gravity="center"
+                android:hint="请输入邮箱地址"
+                android:id="@+id/login_edittext_email"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:background="@color/gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/regis_pass"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:background="@null"
+                android:layout_gravity="center"
+                android:hint="请输入密码"
+                android:ems="9"
+                android:inputType="textPassword"
+                android:id="@+id/login_edittext_password"
+                />
+
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Switch"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/switch_bkg_switch"
+                android:id="@+id/login_switch" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="登录 "
+        android:id="@+id/login_button_login"
+        android:layout_below="@+id/login_linearLayout_editusername"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:background="#00f"
+        android:textColor="#fff"
+        android:clickable="true"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_below="@id/login_button_login"
+        android:id="@+id/login_linearLayout_jieshao">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:background="@color/gray"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="其他账户登陆"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:background="@color/gray"/>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/login_imageView_weixin"
+        android:layout_below="@+id/login_linearLayout_jieshao"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:onClick="clickButton"
+        android:clickable="true"
+        android:src="@drawable/login_big_wx"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/login_imageView_weixin"
+        android:src="@drawable/login_big_qq"
+        android:layout_toLeftOf="@id/login_imageView_weixin"
+        android:layout_marginRight="35dp"
+        android:onClick="clickButton"
+        android:clickable="true"
+        android:id="@+id/login_imageView_qq"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/login_imageView_weixin"
+        android:src="@drawable/login_big_sina"
+        android:layout_toRightOf="@id/login_imageView_weixin"
+        android:layout_marginLeft="35dp"
+        android:onClick="clickButton"
+        android:id="@+id/login_imageView_sina"
+        android:clickable="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_imageView_weixin"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:text="客服热线 4000-123-951"/>
+
+
+</RelativeLayout>

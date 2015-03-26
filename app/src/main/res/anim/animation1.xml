@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false"
+    >
+    <item android:drawable="@drawable/paly1" android:duration="50"></item>
+    <item android:drawable="@drawable/paly2" android:duration="50"></item>
+    <item android:drawable="@drawable/paly3" android:duration="50"></item>
+    <item android:drawable="@drawable/paly4" android:duration="50"></item>
+    <item android:drawable="@drawable/paly5" android:duration="50"></item>
+    <item android:drawable="@drawable/paly6" android:duration="50"></item>
+    <item android:drawable="@drawable/paly7" android:duration="50"></item>
+    <item android:drawable="@drawable/paly8" android:duration="50"></item>
+    <item android:drawable="@drawable/paly9" android:duration="50"></item>
+    <item android:drawable="@drawable/paly10" android:duration="50"></item>
+    <item android:drawable="@drawable/paly11" android:duration="50"></item>
+    <item android:drawable="@drawable/paly12" android:duration="50"></item>
+    <item android:drawable="@drawable/paly13" android:duration="50"></item>
+    <item android:drawable="@drawable/paly14" android:duration="50"></item>
+    <item android:drawable="@drawable/paly15" android:duration="50"></item>
+    <item android:drawable="@drawable/paly16" android:duration="50"></item>
+    <item android:drawable="@drawable/paly17" android:duration="50"></item>
+    <item android:drawable="@drawable/paly18" android:duration="50"></item>
+    <item android:drawable="@drawable/paly19" android:duration="50"></item>
+    <item android:drawable="@drawable/paly20" android:duration="50"></item>
+    <item android:drawable="@drawable/paly21" android:duration="50"></item>
+    <item android:drawable="@drawable/paly22" android:duration="50"></item>
+    <item android:drawable="@drawable/paly23" android:duration="50"></item>
+    <item android:drawable="@drawable/paly24" android:duration="50"></item>
+    <item android:drawable="@drawable/paly25" android:duration="50"></item>
+    <item android:drawable="@drawable/paly26" android:duration="50"></item>
+    <item android:drawable="@drawable/paly27" android:duration="50"></item>
+    <item android:drawable="@drawable/paly28" android:duration="50"></item>
+    <item android:drawable="@drawable/paly29" android:duration="50"></item>
+    <item android:drawable="@drawable/paly30" android:duration="50"></item>
+    <item android:drawable="@drawable/paly31" android:duration="50"></item>
+    <item android:drawable="@drawable/paly32" android:duration="50"></item>
+</animation-list>

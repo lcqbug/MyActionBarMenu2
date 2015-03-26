@@ -1,0 +1,120 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:background="@drawable/main_me_bg"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/userfragment_imageView_mymessage"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:src="@drawable/mymessage_icon" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/userfragment_imageView_home_hugh"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/home_hugh"
+            android:clickable="true"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/userfragment_imageView_setting"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="40dp"
+            android:src="@drawable/home_setting_normal" />
+
+        <ImageView
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/userfragment_imageView_login"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/home_loginorregist" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:orientation="horizontal">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:text="我的地图"
+                android:background="@drawable/userfragment_linearout_tab"
+                android:checked="false"
+                android:id="@+id/userfragment_imageView_mymap" />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:text="我的记录"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:id="@+id/userfragment_imageView_shoping"
+                android:background="@drawable/userfragment_linearout_tab" />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:text="我的地图"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:id="@+id/userfragment_imageView_myaction"
+                android:background="@drawable/userfragment_linearout_tab" />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:text="我的评论"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:id="@+id/userfragment_imageView_myoption"
+                android:background="@drawable/userfragment_linearout_tab" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7">
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>
