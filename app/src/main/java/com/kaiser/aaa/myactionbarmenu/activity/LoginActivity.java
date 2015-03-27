@@ -4,10 +4,19 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.ActionBarActivity;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.kaiser.aaa.myactionbarmenu.R;
+import com.kaiser.aaa.myactionbarmenu.Utils.HttpURLConnHelper;
+import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.view.annotation.ContentView;
+import com.lidroid.xutils.view.annotation.ViewInject;
 
 import java.util.HashMap;
 
@@ -22,12 +31,49 @@ import cn.sharesdk.tencent.qq.QQ;
 
 //登陆界面
 //songsong
-public class LoginActivity extends ActionBarActivity implements Handler.Callback,PlatformActionListener{
+@ContentView(R.layout.activity_login)
+public class LoginActivity extends ActionBarActivity implements Handler.Callback, PlatformActionListener {
+
+    //初始化editText
+    @ViewInject(R.id.login_edittext_email)
+    private EditText edittext_email;
+    @ViewInject(R.id.login_edittext_password)
+    private EditText edittext_password;
+    private String email;
+    private String password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        ViewUtils.inject(this);
+    }
+
+    //得到edittext里面的数据，用post方法提交给服务器。返回json数据
+    private void login() {
+        //获取里面的数据
+
+        if (!TextUtils.isEmpty(edittext_email.getText()) && !TextUtils.isEmpty(edittext_password.getText())) {
+            //提交给服务器
+//            email = edittext_email.getText().toString();
+//            password = edittext_password.getText().toString();
+             email = "806948209@qq.com";
+             password = "wanggwcs380217";
+            //Toast.makeText(this, email+password, Toast.LENGTH_SHORT).show();
+            byte[] bytes = HttpURLConnHelper.doPostSubmit("http://webapi.yilule.com:5580/api/User?email=" + email + "&password=" + password, "");
+            if (bytes != null) {
+                String result = new String(bytes);
+                Log.i("TAG", "--->" + result);
+                Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
+                //将返回的json串解析
+            }else {
+                Toast.makeText(this, "用户名或者密码输入错误", Toast.LENGTH_SHORT).show();
+            }
+
+        } else {
+            //如果里面没有数据则吐司
+            Log.i("TAG", "--->输入邮箱");
+            Toast.makeText(this, "输入邮箱", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void clickButton(View view) {
@@ -47,9 +93,11 @@ public class LoginActivity extends ActionBarActivity implements Handler.Callback
                 authorize(new SinaWeibo(this));
                 break;
             case R.id.login_button_login:
+                login();
                 break;
         }
     }
+
 
     //分享内容
     private void showShare() {
@@ -128,6 +176,7 @@ public class LoginActivity extends ActionBarActivity implements Handler.Callback
     }
 
     //////// 授权认证的时候，回调的方法
+
     /**
      * 授权成功，可以获取用户信息
      *

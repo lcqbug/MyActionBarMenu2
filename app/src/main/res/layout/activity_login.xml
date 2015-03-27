@@ -1,9 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/main_bg"
-                tools:context="com.song.firstproject.LoginActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+    tools:context=".LoginActivity">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -31,12 +31,14 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="20dp"
-                android:src="@drawable/regis_mail"/>
+                android:src="@drawable/regis_mail" />
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -45,7 +47,8 @@
                 android:layout_gravity="center"
                 android:hint="请输入邮箱地址"
                 android:id="@+id/login_edittext_email"
-                />
+                android:textColor="#000"
+                android:textColorHint="@color/gray"/>
         </LinearLayout>
 
         <TextView
@@ -65,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/regis_pass"
                 android:layout_gravity="center"
-                android:layout_marginLeft="20dp"/>
+                android:layout_marginLeft="20dp" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -77,7 +80,8 @@
                 android:ems="9"
                 android:inputType="textPassword"
                 android:id="@+id/login_edittext_password"
-                />
+                android:textColor="#000"
+                android:textColorHint="@color/gray"/>
 
             <Switch
                 android:layout_width="wrap_content"
@@ -101,7 +105,7 @@
         android:layout_marginTop="40dp"
         android:background="#00f"
         android:textColor="#fff"
-        android:clickable="true"/>
+        android:onClick="clickButton" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -114,24 +118,27 @@
         android:layout_marginRight="40dp"
         android:layout_below="@id/login_button_login"
         android:id="@+id/login_linearLayout_jieshao">
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_weight="1"
             android:layout_gravity="center"
-            android:background="@color/gray"/>
+            android:background="@color/gray" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:text="其他账户登陆"
-            android:gravity="center"/>
+            android:gravity="center" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_weight="1"
             android:layout_gravity="center"
-            android:background="@color/gray"/>
+            android:background="@color/gray" />
     </LinearLayout>
 
     <ImageView
@@ -143,7 +150,7 @@
         android:layout_marginTop="40dp"
         android:onClick="clickButton"
         android:clickable="true"
-        android:src="@drawable/login_big_wx"/>
+        android:src="@drawable/login_big_wx" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -154,8 +161,7 @@
         android:layout_marginRight="35dp"
         android:onClick="clickButton"
         android:clickable="true"
-        android:id="@+id/login_imageView_qq"
-        />
+        android:id="@+id/login_imageView_qq" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -166,7 +172,7 @@
         android:layout_marginLeft="35dp"
         android:onClick="clickButton"
         android:id="@+id/login_imageView_sina"
-        android:clickable="true"/>
+        android:clickable="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -174,7 +180,7 @@
         android:layout_below="@id/login_imageView_weixin"
         android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
-        android:text="客服热线 4000-123-951"/>
+        android:text="客服热线 4000-123-951" />
 
 
 </RelativeLayout>
