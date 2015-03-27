@@ -7,9 +7,14 @@ import com.lidroid.xutils.db.annotation.Table;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-@Table(name = "Chapter")
-public class FirstFragmentBean {
+import java.io.Serializable;
+
+//表名可写可不写,不写表名为类名,推荐要写表名
+@Table(name = "FirstFragmentBean")
+public class FirstFragmentBean implements Serializable {
+    //列名,不写为属性名,推荐写列名
     @Id(column = "Id")
+    //取消自增属性
     @NoAutoIncrement
     private String id;
 
@@ -27,6 +32,25 @@ public class FirstFragmentBean {
 
     @Column(column = "Foreword")
     private String foreword;
+
+    private double Lat;
+    private double Lng;
+
+    public double getLat() {
+        return Lat;
+    }
+
+    public void setLat(double lat) {
+        Lat = lat;
+    }
+
+    public double getLng() {
+        return Lng;
+    }
+
+    public void setLng(double lng) {
+        Lng = lng;
+    }
 
     @Override
     public String toString() {
@@ -46,7 +70,8 @@ public class FirstFragmentBean {
             this.name=jsonObject.getString("Name");
             this.foreword=jsonObject.getString("Foreword");
             this.newPic=jsonObject.getString("NewPic");
-
+            this.Lat=jsonObject.getDouble("Lat");
+            this.Lng=jsonObject.getDouble("Lng");
 
         } catch (JSONException e) {
             e.printStackTrace();
