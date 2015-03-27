@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.kaiser.aaa.myactionbarmenu.R;
-import com.kaiser.aaa.myactionbarmenu.Utils.BitmapHelper;
+import com.kaiser.aaa.myactionbarmenu.utils.BitmapHelper;
 import com.kaiser.aaa.myactionbarmenu.entity.FirstFragmentBean;
 import com.lidroid.xutils.BitmapUtils;
 import com.lidroid.xutils.ViewUtils;

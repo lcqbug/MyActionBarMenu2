@@ -1,5 +1,6 @@
 package com.kaiser.aaa.myactionbarmenu.fragment;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import com.kaiser.aaa.myactionbarmenu.activity.Content;
 import com.kaiser.aaa.myactionbarmenu.adapter.Firstfragment_lv_Adapter;
 import com.kaiser.aaa.myactionbarmenu.adapter.MainTopViewPager;
 import com.kaiser.aaa.myactionbarmenu.entity.FirstFragmentBean;
+import com.kaiser.aaa.myactionbarmenu.utils.PathHelper;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.exception.HttpException;
@@ -51,12 +53,26 @@ public class First_Fragment extends Fragment implements PullToRefreshBase.OnRefr
     private int[] img = { R.drawable.pic1, R.drawable.pic2, R.drawable.pic3,
             R.drawable.pic4, R.drawable.pic5 };
     private List<View> list_image=new ArrayList<>();
+    private int pageSize=20;
+    private int index=1;
+    private String  lat="116.342894";
+    private String lng="40.046066";
+    private int parentId=59;
 
+    String path= PathHelper.firstpage(index,lat,lng,parentId);
 
-
+    //这个碎片声明周期是贴在activity上面，用于加载网络数据，在此声明周期中加载网络数据，可以减少网络加载舒红菊的次数。
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        http=new HttpUtils();
+        eertrd();
     }
 
     @Override
@@ -76,14 +92,14 @@ public class First_Fragment extends Fragment implements PullToRefreshBase.OnRefr
                 Intent intent=new Intent();
                 intent.setClass(getActivity(), Content.class);
                 Bundle bundle=new Bundle();
-                bundle.putString("id",totailist.get(i).getId());
+             //   bundle.putString("id",totailist.get(i).getId());
+                bundle.putSerializable("FirstFragmentBead",totailist.get(i));
                 intent.putExtras(bundle);
                 //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
         });
-        http=new HttpUtils();
-        eertrd();
+
         return view;
     }
     // 顶部的viewPager
@@ -110,7 +126,7 @@ public class First_Fragment extends Fragment implements PullToRefreshBase.OnRefr
 
 
     public void eertrd() {
-        http.send(HttpMethod.GET, urlString, new RequestCallBack<String>() {
+        http.send(HttpMethod.GET, path, new RequestCallBack<String>() {
 
             @Override
             public void onFailure(HttpException arg0, String arg1) {

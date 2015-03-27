@@ -23,7 +23,7 @@
             <android.support.v4.view.ViewPager
             android:text="@string/hello_world"
             android:layout_width="match_parent"
-
+            android:background="@drawable/loadingimg"
             android:id="@+id/viewpager_content"
             android:layout_height="150dp"
             />
@@ -36,44 +36,93 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
-
                 android:id="@+id/layout_content"
-
                 android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingRight="5dp"
+                    android:src="@drawable/newmap_quanjing"/>
                 <TextView
                     android:id="@+id/text01"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#000"
-                    android:padding="3dp"
+                    android:layout_marginRight="3dp"
                     android:clickable="true"
-                    android:drawableLeft="@drawable/newmap_quanjing"
                     android:text="720全景"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:src="@drawable/rule"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingRight="5dp"
+                    android:src="@drawable/newmap_tup"/>
                 <TextView
                     android:id="@+id/text02"
                     android:layout_width="wrap_content"
                     android:textColor="#000"
                     android:padding="3dp"
                     android:clickable="true"
+                    android:layout_marginRight="3dp"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/newmap_tup"
                     android:text="乐在题中"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:src="@drawable/rule"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingRight="5dp"
+                    android:src="@drawable/my_spot_hs"/>
                 <TextView
                     android:id="@+id/text03"
                     android:textColor="#000"
                     android:layout_width="wrap_content"
                     android:padding="3dp"
                     android:clickable="true"
-                    android:drawableLeft="@drawable/my_spot_hs"
+                    android:layout_marginRight="3dp"
                     android:layout_height="wrap_content"
                     android:text="查看评论"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:src="@drawable/rule"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingRight="5dp"
+                    android:src="@drawable/willplay_btn_img"/>
                 <TextView
                     android:id="@+id/text04"
                     android:textColor="#000"
                     android:layout_width="wrap_content"
                     android:padding="3dp"
                     android:clickable="true"
-                    android:drawableLeft="@drawable/willplay_btn_img"
                     android:layout_height="wrap_content"
                     android:text="必玩推荐"/>
 
@@ -115,7 +164,8 @@
         android:layout_weight="1"
         android:layout_height="20dp"
         android:layout_gravity="left|center_vertical"
-        android:id="@+id/imageView3"
+        android:clickable="true"
+        android:id="@+id/imageView_conten_buttom_left"
         android:src="@drawable/amaploaction_btn"
         />
 
@@ -123,7 +173,9 @@
         android:layout_width="0dp"
         android:layout_weight="5"
         android:layout_height="20dp"
-        android:id="@+id/imageView4"
+        android:id="@+id/imageView_content_buttom_center"
+        android:clickable="true"
+
         android:src="@drawable/huobg_img_max"
         android:layout_gravity="left|center_vertical"
         />
@@ -133,7 +185,8 @@
         android:layout_weight="1"
         android:layout_height="20dp"
         android:src="@drawable/amapdetail_more"
-        android:id="@+id/imageView5"
+        android:id="@+id/imageView_content_buttom_right"
+        android:clickable="true"
         android:layout_gravity="right|center_vertical"/>
 
     </LinearLayout>
