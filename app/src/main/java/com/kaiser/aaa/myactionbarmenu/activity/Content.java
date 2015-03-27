@@ -12,33 +12,24 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
-import android.widget.Toast;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.BitmapDescriptor;
-import com.baidu.mapapi.map.BitmapDescriptorFactory;
 import com.baidu.mapapi.map.MapView;
-import com.baidu.mapapi.map.MarkerOptions;
-import com.baidu.mapapi.map.OverlayOptions;
-import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.overlayutil.PoiOverlay;
 import com.baidu.mapapi.search.core.PoiInfo;
-import com.baidu.mapapi.search.core.SearchResult;
-import com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener;
-import com.baidu.mapapi.search.poi.PoiDetailResult;
 import com.baidu.mapapi.search.poi.PoiDetailSearchOption;
-import com.baidu.mapapi.search.poi.PoiResult;
 import com.baidu.mapapi.search.poi.PoiSearch;
 import com.kaiser.aaa.myactionbarmenu.R;
+import com.kaiser.aaa.myactionbarmenu.Utils.HttpHelper;
+import com.kaiser.aaa.myactionbarmenu.Utils.ParserJSONUtils;
+import com.kaiser.aaa.myactionbarmenu.Utils.PathHelper;
 import com.kaiser.aaa.myactionbarmenu.adapter.Content_Viewpager_Adapter;
 import com.kaiser.aaa.myactionbarmenu.entity.ContentBean;
-import com.kaiser.aaa.myactionbarmenu.entity.FirstFragmentBean;
 import com.kaiser.aaa.myactionbarmenu.interfaces.CallBackJSONStr;
-import com.kaiser.aaa.myactionbarmenu.utils.HttpHelper;
-import com.kaiser.aaa.myactionbarmenu.utils.ParserJSONUtils;
-import com.kaiser.aaa.myactionbarmenu.utils.PathHelper;
+import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ContentView;
+import com.lidroid.xutils.view.annotation.ViewInject;
 
 import org.json.JSONObject;
 
@@ -46,14 +37,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 @ContentView(R.layout.activity_content)
-public class Content extends ActionBarActivity implements View.OnClickListener{
+public class Content extends ActionBarActivity {
 
    private MapView mapView_content;
     private BaiduMap mBaiduMap;
     //内容详细的顶部Viewpager
-
+    @ViewInject(R.id.viewpager_content)
     private ViewPager viewpager_content;
+    @ViewInject(R.id.scrollView_content)
     private ScrollView scrollView_content;
+    @ViewInject(R.id.layout_content_top)
     private LinearLayout layout_content_top;
     //顶部Viewpager的数据源
     private List<View> list_view=new ArrayList<>();
@@ -62,8 +55,6 @@ public class Content extends ActionBarActivity implements View.OnClickListener{
     private List<ContentBean> list_cBean=new ArrayList<>();
     private String id;
     private float myalph=1;
-    private double lat;
-    private double lng;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,47 +63,37 @@ public class Content extends ActionBarActivity implements View.OnClickListener{
         SDKInitializer.initialize(getApplicationContext());
         checkKey();
          // 装载布局文件
-        setContentView(R.layout.activity_content);
+        ViewUtils.inject(this);
         mapView_content= (MapView) findViewById(R.id.mapView_content);
-        viewpager_content= (ViewPager) findViewById(R.id.viewpager_content);
-        scrollView_content= (ScrollView) findViewById(R.id.scrollView_content);
-        layout_content_top= (LinearLayout) findViewById(R.id.layout_content_top);
         mBaiduMap=mapView_content.getMap();
-        //开启交通图
-        mBaiduMap.setBaiduHeatMapEnabled(true);
         mBaiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
 
-        mapView_content= (MapView) findViewById(R.id.mapView_content);
         Bundle bundle=getIntent().getExtras();
-        FirstFragmentBean firstFragmentBead = (FirstFragmentBean) bundle.getSerializable("FirstFragmentBead");
-        id=firstFragmentBead.getId();
-      //  id= bundle.getString("id");
-        lat = firstFragmentBead.getLat();
-        lng = firstFragmentBead.getLng();
-        myMap();
-        poiSearch = PoiSearch.newInstance();
+        id= bundle.getString("id");
 
-        poiSearch
-                .setOnGetPoiSearchResultListener(new OnGetPoiSearchResultListener() {
-
-                    @Override
-                    public void onGetPoiResult(PoiResult result) {
-                        if (result.error == SearchResult.ERRORNO.NO_ERROR) {
-                            mBaiduMap.clear();// 刷新百度地图
-                            // 给泡泡添加数据
-                            PoiOverlay overlay = new MyPoiOverlay(mBaiduMap);
-                            overlay.setData(result);
-                            overlay.addToMap();// 添加到地图上。
-                            // 给泡泡监听
-                            mBaiduMap.setOnMarkerClickListener(overlay);
-                        }
-                    }
-
-                    @Override
-                    public void onGetPoiDetailResult(PoiDetailResult arg0) {
-
-                    }
-                });
+//        poiSearch = PoiSearch.newInstance();
+//
+//        poiSearch
+//                .setOnGetPoiSearchResultListener(new OnGetPoiSearchResultListener() {
+//
+//                    @Override
+//                    public void onGetPoiResult(PoiResult result) {
+//                        if (result.error == SearchResult.ERRORNO.NO_ERROR) {
+//                            mBaiduMap.clear();// 刷新百度地图
+//                            // 给泡泡添加数据
+//                            PoiOverlay overlay = new MyPoiOverlay(mBaiduMap);
+//                            overlay.setData(result);
+//                            overlay.addToMap();// 添加到地图上。
+//                            // 给泡泡监听
+//                            mBaiduMap.setOnMarkerClickListener(overlay);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onGetPoiDetailResult(PoiDetailResult arg0) {
+//
+//                    }
+//                });
         //加载viewPager的数据
         initView();
 
@@ -121,7 +102,7 @@ public class Content extends ActionBarActivity implements View.OnClickListener{
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction()==MotionEvent.ACTION_MOVE){
                     myalph=myalph-0.01f;
-                  //  layout_content_top.setAlpha(myalph);
+                    layout_content_top.setAlpha(myalph);
                     //可以监听到ScrollView的滚动事件
 
                 }
@@ -130,37 +111,6 @@ public class Content extends ActionBarActivity implements View.OnClickListener{
         });
 
     }
-
-    public void myMap(){
-        //定义Maker坐标点
-        LatLng point = new LatLng(lat, lng);
-        //构建Marker图标
-        BitmapDescriptor bitmap = BitmapDescriptorFactory
-                .fromResource(R.drawable.ic_launcher);
-        //构建MarkerOption，用于在地图上添加Marker
-        OverlayOptions option = new MarkerOptions()
-                .position(point)
-                .icon(bitmap);
-    //在地图上添加Marker，并显示
-        mBaiduMap.addOverlay(option);
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.imageView_conten_buttom_left:
-                Toast.makeText(getApplicationContext()," 菜单",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.imageView_content_buttom_center:
-                Toast.makeText(getApplicationContext()," 菜单",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.imageView_content_buttom_right:
-                Toast.makeText(getApplicationContext()," 菜单",Toast.LENGTH_SHORT).show();
-                break;
-
-        }
-    }
-
     class MyPoiOverlay extends PoiOverlay {
 
         public MyPoiOverlay(BaiduMap baiduMap) {
@@ -194,6 +144,7 @@ public class Content extends ActionBarActivity implements View.OnClickListener{
                     ImageView view=new ImageView(getApplicationContext());
                     view.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     view.setBackgroundResource(R.drawable.loadingimg);
+                   // view.setScaleType(ImageView.ScaleType.FIT_XY);
                     // 加载图片
                     HttpHelper.getBitmapUtils(getApplicationContext()).display(view,b.getNewPath());
                     list_view.add(view);

@@ -10,11 +10,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.kaiser.aaa.myactionbarmenu.activity.LoginActivity;
-import com.kaiser.aaa.myactionbarmenu.activity.SearchActivity;
+import com.kaiser.aaa.myactionbarmenu.MyTopMenu.SlidingTabLayout;
 import com.kaiser.aaa.myactionbarmenu.adapter.ChatperAdapter;
-import com.kaiser.aaa.myactionbarmenu.mytopmenu.SlidingTabLayout;
-import com.kaiser.aaa.myactionbarmenu.utils.DbHelper;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ContentView;
 import com.lidroid.xutils.view.annotation.ViewInject;
@@ -53,7 +50,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
           myTopMenu();
           initView();
-        DbHelper.intiUtils(this);
 
     }
     //主框架的内部框架
@@ -129,37 +125,25 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         if (view==myLogin){
-            Intent intent=new Intent();
-            intent.setClass(this, LoginActivity.class);
-            startActivity(intent);
+
         }else if (view == itemHome){
            // changeFragment(new HomeFragment());
         }else if (view == itemProfile){
-            //我的
-            viewpager_main.setCurrentItem(2);
+          //  changeFragment(new ProfileFragment());
         }else if (view == itemCalendar){
-            //扫一扫
-            Intent openCameraIntent = new Intent(MainActivity.this,CaptureActivity.class);
-            startActivity(openCameraIntent);
+           // changeFragment(new CalendarFragment());
         }else if (view == itemSettings){
-            //跳转到搜索页面
-            Intent intent=new Intent();
-            intent.setClass(this,SearchActivity.class);
-            startActivity(intent);
-
-
+         //   changeFragment(new SettingsFragment());
         }
         switch (view.getId()){
             case R.id.image_twocode_main:
+                Toast.makeText(this,"twocode",Toast.LENGTH_SHORT).show();
                 Intent openCameraIntent = new Intent(MainActivity.this,CaptureActivity.class);
                 startActivity(openCameraIntent);
               //  startActivityForResult(openCameraIntent, 0);
                 break;
             case R.id.image_search_main:
-                //跳转到搜索页面
-                Intent intent=new Intent();
-                intent.setClass(this,SearchActivity.class);
-                startActivity(intent);
+                Toast.makeText(this,"search",Toast.LENGTH_SHORT).show();
                 break;
 
         }

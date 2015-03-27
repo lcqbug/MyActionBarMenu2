@@ -11,7 +11,7 @@ import com.kaiser.aaa.myactionbarmenu.fragment.ThirtFragment;
 
 //main的viewPager的适配器
 public class ChatperAdapter extends FragmentPagerAdapter {
-	private static final String[] chapter = { "周边游玩    ", "   听说   ","     我的"};
+	private static final String[] chapter = { "周边游玩", "听说","我的"};
 
 
 	public ChatperAdapter(FragmentManager fm) {
@@ -36,7 +36,7 @@ public class ChatperAdapter extends FragmentPagerAdapter {
         }
         Bundle bundle = new  Bundle();
         bundle.putString("chapter", chapter[arg0]);
-      //  fragment.setArguments(bundle);
+        fragment.setArguments(bundle);
         return fragment;
 
 

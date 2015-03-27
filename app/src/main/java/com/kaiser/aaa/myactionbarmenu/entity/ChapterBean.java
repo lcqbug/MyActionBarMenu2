@@ -8,7 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 @Table(name = "Chapter")
-public class FirstFragmentBean {
+public class ChapterBean {
     @Id(column = "Id")
     @NoAutoIncrement
     private String id;
