@@ -5,10 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -16,6 +18,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.kaiser.aaa.myactionbarmenu.R;
 import com.kaiser.aaa.myactionbarmenu.activity.Content;
 import com.kaiser.aaa.myactionbarmenu.adapter.Firstfragment_lv_Adapter;
+import com.kaiser.aaa.myactionbarmenu.adapter.MainTopViewPager;
 import com.kaiser.aaa.myactionbarmenu.entity.FirstFragmentBean;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.ViewUtils;
@@ -45,6 +48,12 @@ public class First_Fragment extends Fragment implements PullToRefreshBase.OnRefr
     private FirstFragmentBean chapterBead;
     private List<FirstFragmentBean> totailist=new ArrayList<>();
     private Firstfragment_lv_Adapter adapter=null;
+    private int[] img = { R.drawable.pic1, R.drawable.pic2, R.drawable.pic3,
+            R.drawable.pic4, R.drawable.pic5 };
+    private List<View> list_image=new ArrayList<>();
+
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +65,9 @@ public class First_Fragment extends Fragment implements PullToRefreshBase.OnRefr
         ViewUtils.inject(this, view);
         mlistView= pullToRefresh_firstfm.getRefreshableView();
         //mlistView.
-       //mlistView.addHeaderView();
+        View topviewPager= initViews_mylogin(getActivity());
+        mlistView.addHeaderView(topviewPager);
+
         adapter=new Firstfragment_lv_Adapter(getActivity(),totailist);
         mlistView.setAdapter(adapter);
         mlistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -77,12 +88,26 @@ public class First_Fragment extends Fragment implements PullToRefreshBase.OnRefr
     }
     // 顶部的viewPager
     //mlistView.addHeaderView();
-    private void initViews_mylogin(Context context){
-        LayoutInflater inflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-      //  inflater.inflate(R.layout.mylogin, this);
-//        iv_icon = (ImageView) findViewById(R.id.imageView_mylogin);
-//        button_mylogin= (Button) findViewById(R.id.button_mylogin);
+    private View initViews_mylogin(Context context) {
+        // 取得xml里定义的view
+        LayoutInflater inflater = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.maintopviewpager, null);
+        ViewPager vp_maintop_show = (ViewPager) view.findViewById(R.id.vp_main_show);
+        //   list = new ArrayList<View>();
+        for (int i = 0; i < img.length; i++) {
+            ImageView imageView = new ImageView(getActivity());
+            imageView.setImageResource(img[i]);
+            // 设置图片填充整个控件。
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            list_image.add(imageView);
+        }
+        // 把list中的图片添加到上面的ViewPager适配器上
+        vp_maintop_show.setAdapter(new MainTopViewPager(list_image));
+
+        return view;
     }
+
 
     public void eertrd() {
         http.send(HttpMethod.GET, urlString, new RequestCallBack<String>() {
