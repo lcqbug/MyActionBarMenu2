@@ -20,7 +20,8 @@ import cn.sharesdk.onekeyshare.OnekeyShare;
 import cn.sharesdk.sina.weibo.SinaWeibo;
 import cn.sharesdk.tencent.qq.QQ;
 
-
+//登陆界面
+//songsong
 public class LoginActivity extends ActionBarActivity implements Handler.Callback,PlatformActionListener{
 
     @Override
