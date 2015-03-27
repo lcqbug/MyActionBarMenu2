@@ -18,6 +18,7 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 import com.special.ResideMenu.ResideMenu;
 import com.special.ResideMenu.ResideMenuItem;
 import com.zxing.activity.CaptureActivity;
+//主页面 黄科泽
 
 @ContentView(R.layout.activity_main)
 public class MainActivity extends ActionBarActivity implements View.OnClickListener{
