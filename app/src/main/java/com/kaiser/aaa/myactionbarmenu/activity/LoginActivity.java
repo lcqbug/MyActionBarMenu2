@@ -18,6 +18,8 @@ import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ContentView;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.HashMap;
 
 import cn.sharesdk.framework.Platform;
@@ -59,7 +61,12 @@ public class LoginActivity extends ActionBarActivity implements Handler.Callback
              email = "806948209@qq.com";
              password = "wanggwcs380217";
             //Toast.makeText(this, email+password, Toast.LENGTH_SHORT).show();
-            byte[] bytes = HttpURLConnHelper.doPostSubmit("http://webapi.yilule.com:5580/api/User?email=" + email + "&password=" + password, "");
+            byte[] bytes = new byte[0];
+            try {
+                bytes = HttpURLConnHelper.doPostSubmit("http://webapi.yilule.com:5580/api/User?email=" + URLEncoder.encode(email, "UTF-8") + "&password=" + password, "");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
             if (bytes != null) {
                 String result = new String(bytes);
                 Log.i("TAG", "--->" + result);
