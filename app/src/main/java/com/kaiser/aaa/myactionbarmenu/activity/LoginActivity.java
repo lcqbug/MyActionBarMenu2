@@ -56,12 +56,14 @@ public class LoginActivity extends ActionBarActivity implements Handler.Callback
 
         if (!TextUtils.isEmpty(edittext_email.getText()) && !TextUtils.isEmpty(edittext_password.getText())) {
             //提交给服务器
-//            email = edittext_email.getText().toString();
-//            password = edittext_password.getText().toString();
-             email = "806948209@qq.com";
-             password = "wanggwcs380217";
+            email = edittext_email.getText().toString();
+            password = edittext_password.getText().toString();
+//             email = "806948209@qq.com";
+//             password = "wanggwcs380217";
             //Toast.makeText(this, email+password, Toast.LENGTH_SHORT).show();
-            byte[] bytes = new byte[0];
+            byte[] bytes=null;
+            //将@编码
+            //email.replace("@", "%40");
             try {
                 bytes = HttpURLConnHelper.doPostSubmit("http://webapi.yilule.com:5580/api/User?email=" + URLEncoder.encode(email, "UTF-8") + "&password=" + password, "");
             } catch (UnsupportedEncodingException e) {
