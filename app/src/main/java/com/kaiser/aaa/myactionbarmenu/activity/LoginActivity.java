@@ -74,6 +74,7 @@ public class LoginActivity extends ActionBarActivity implements Handler.Callback
                 Log.i("TAG", "--->" + result);
                 Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
                 //将返回的json串解析
+
             }else {
                 Toast.makeText(this, "用户名或者密码输入错误", Toast.LENGTH_SHORT).show();
             }
