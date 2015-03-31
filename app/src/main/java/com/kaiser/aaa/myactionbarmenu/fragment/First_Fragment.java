@@ -19,10 +19,10 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.kaiser.aaa.myactionbarmenu.R;
 import com.kaiser.aaa.myactionbarmenu.activity.Content;
 import com.kaiser.aaa.myactionbarmenu.adapter.Firstfragment_lv_Adapter;
-import com.kaiser.aaa.myactionbarmenu.adapter.MainTopViewPager;
+import com.kaiser.aaa.myactionbarmenu.adapter.MainTopViewPager_adapter;
 import com.kaiser.aaa.myactionbarmenu.entity.FirstFragmentBean;
-import com.kaiser.aaa.myactionbarmenu.utils.DbHelper;
-import com.kaiser.aaa.myactionbarmenu.utils.PathHelper;
+import com.kaiser.aaa.myactionbarmenu.Utils.DbHelper;
+import com.kaiser.aaa.myactionbarmenu.Utils.PathHelper;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.db.sqlite.Selector;
@@ -150,7 +150,7 @@ public class First_Fragment extends Fragment implements PullToRefreshBase.OnRefr
             list_image.add(imageView);
         }
         // 把list中的图片添加到上面的ViewPager适配器上
-        vp_maintop_show.setAdapter(new MainTopViewPager(list_image));
+        vp_maintop_show.setAdapter(new MainTopViewPager_adapter(list_image));
 
         return view;
     }

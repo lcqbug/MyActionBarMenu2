@@ -5,7 +5,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ParserJSONUtils {
 
@@ -41,6 +43,24 @@ public class ParserJSONUtils {
             e.printStackTrace();
         }
         return null;
+    }
+    //查看评论json
+    public static List<Map<String,String>> parserCommentJson(String jsonStr){
+        try {
+            List<Map<String ,String>> list=new ArrayList<>();
+            JSONArray jsonArray=new JSONArray(jsonStr);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                Map<String ,String> map=new HashMap<>();
+                map.put("Content",jsonObject.getString("Content"));
+                map.put("Reviewer",jsonObject.getString("Reviewer"));
+                list.add(map);
+            }
+            return  list;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return  null;
     }
 
 	

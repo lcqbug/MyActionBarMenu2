@@ -12,10 +12,10 @@ public class BitmapHelper {
 	private static BitmapUtils utils;
 	public static void initUtils(Context context){
 		utils = new BitmapUtils(context, 
-				new File(Environment.getExternalStorageDirectory(), "leyou").getAbsolutePath(),
+				new File(Environment.getExternalStorageDirectory(), "HappyTravel").getAbsolutePath(),
 				0.25f);
-		utils.configDefaultLoadingImage(R.drawable.ic_launcher);
-		utils.configDefaultLoadFailedImage(R.drawable.ic_launcher);
+		utils.configDefaultLoadingImage(R.drawable.loadingimg);
+		utils.configDefaultLoadFailedImage(R.drawable.loadingimg);
 		utils.configDefaultBitmapMaxSize(100, 100);
 		utils.configDefaultCacheExpiry(1000 * 60 * 60 * 24);
 		utils.configDefaultConnectTimeout(5000);
@@ -23,7 +23,8 @@ public class BitmapHelper {
 	}
 	public static BitmapUtils getUtils(Context context) {
         if (utils==null){
-            utils=new BitmapUtils(context);
+            initUtils(context);
+           // utils=new BitmapUtils(context);
         }
 		return utils;
 	}

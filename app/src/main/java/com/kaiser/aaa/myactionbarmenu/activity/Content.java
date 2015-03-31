@@ -48,9 +48,9 @@ import com.kaiser.aaa.myactionbarmenu.entity.Content_Info;
 import com.kaiser.aaa.myactionbarmenu.entity.FirstFragmentBean;
 import com.kaiser.aaa.myactionbarmenu.entity.GetXmlAndParse;
 import com.kaiser.aaa.myactionbarmenu.interfaces.CallBackJSONStr;
-import com.kaiser.aaa.myactionbarmenu.utils.HttpHelper;
-import com.kaiser.aaa.myactionbarmenu.utils.ParserJSONUtils;
-import com.kaiser.aaa.myactionbarmenu.utils.PathHelper;
+import com.kaiser.aaa.myactionbarmenu.Utils.HttpHelper;
+import com.kaiser.aaa.myactionbarmenu.Utils.ParserJSONUtils;
+import com.kaiser.aaa.myactionbarmenu.Utils.PathHelper;
 import com.lidroid.xutils.view.annotation.ContentView;
 import com.zxing.activity.CaptureActivity;
 

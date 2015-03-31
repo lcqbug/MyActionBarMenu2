@@ -6,13 +6,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 
 import com.kaiser.aaa.myactionbarmenu.R;
+
+import java.util.List;
+import java.util.Map;
 
 public class CommentActivity extends ActionBarActivity {
     private EditText editText_Comment;
     private Button button_Comment;
     private ListView listView_Comment;
+    private List<Map<String,String>> list;
     private String comment="http://webapi.yilule.com:5580/api/Comments?pid=799&pageSize=20&pageIndex=1";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +33,7 @@ public class CommentActivity extends ActionBarActivity {
 
             }
         });
+        SimpleAdapter adapter=new SimpleAdapter(getApplicationContext(),list,R.layout.comment_item,new String[]{},new int[]{});
         //listView_Comment.setAdapter();
     }
 
