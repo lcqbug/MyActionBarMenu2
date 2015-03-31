@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#5fff"
+    android:gravity="top"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#8000"
+        android:orientation="horizontal">
+        
+        <TextView
+            android:id="@+id/textView_think"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:drawableLeft="@drawable/detail_more_like"
+            android:textSize="15sp"
+            android:gravity="center_vertical"
+            android:text="我想"/>
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView_popnemu_photo01"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:drawableTop="@drawable/detail_more_photo"
+            android:text="照相"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/textView_popnemu_rich01"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/detail_more_scan"
+            android:gravity="center"
+            android:clickable="true"
+            android:text="扫一扫"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/textView_popnemu_comment01"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:clickable="true"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/detail_more_spot"
+            android:text="评论"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#8000"
+        android:orientation="horizontal">
+        
+        <TextView
+            android:id="@+id/textView_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/detail_more_share"
+            android:textSize="15sp"
+            android:text="分享"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+            
+           <TextView
+	            android:id="@+id/textView_popnemu_photo02"
+	            android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:clickable="true"
+                android:gravity="center"
+	            android:layout_height="wrap_content"
+	            android:drawableTop="@drawable/detail_more_sina"
+	            android:text="新浪微博"
+	            android:textSize="15sp"/>
+
+           <TextView
+               android:id="@+id/textView_popnemu_rich02"
+               android:layout_width="0dp"
+               android:layout_weight="1"
+               android:gravity="center"
+               android:layout_height="wrap_content"
+               android:drawableTop="@drawable/detail_more_qzone"
+               android:padding="10dp"
+               android:clickable="true"
+               android:text="QQ空间"
+               android:textSize="15sp" />
+           <TextView
+	            android:id="@+id/textView_popnemu_comment02"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:padding="10dp"
+                android:gravity="center"
+	            android:layout_height="wrap_content"
+	            android:drawableTop="@drawable/detail_more_wxpyq"
+	            android:text="评论"
+	            android:textSize="15sp"/>
+            
+        
+    </LinearLayout>
+</LinearLayout>

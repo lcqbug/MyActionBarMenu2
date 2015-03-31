@@ -8,8 +8,13 @@
         <item name="android:textColor">#000</item>
         <item name="android:textSize">16dp</item>
 
-
     </style>
+
+    <style name="AnimationFade">
+        <item name="android:windowEnterAnimation">@anim/in_downtoup</item>
+        <item name="android:windowExitAnimation">@anim/out_downtoup</item>
+    </style>
+    <string name="title_search_hint">请在这里搜索你喜欢的景点</string>
 
 
 </resources>

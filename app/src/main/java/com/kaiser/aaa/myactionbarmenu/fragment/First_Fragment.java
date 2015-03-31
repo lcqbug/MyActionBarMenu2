@@ -21,9 +21,14 @@ import com.kaiser.aaa.myactionbarmenu.activity.Content;
 import com.kaiser.aaa.myactionbarmenu.adapter.Firstfragment_lv_Adapter;
 import com.kaiser.aaa.myactionbarmenu.adapter.MainTopViewPager;
 import com.kaiser.aaa.myactionbarmenu.entity.FirstFragmentBean;
+import com.kaiser.aaa.myactionbarmenu.utils.DbHelper;
+import com.kaiser.aaa.myactionbarmenu.utils.HttpHelper;
 import com.kaiser.aaa.myactionbarmenu.utils.PathHelper;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.db.sqlite.Selector;
+import com.lidroid.xutils.db.sqlite.WhereBuilder;
+import com.lidroid.xutils.exception.DbException;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
@@ -57,22 +62,23 @@ public class First_Fragment extends Fragment implements PullToRefreshBase.OnRefr
     private int index=1;
     private String  lat="116.342894";
     private String lng="40.046066";
-    private int parentId=59;
-
+    private int parentId=23;
+    private int ScaleType=2;
     String path= PathHelper.firstpage(index,lat,lng,parentId);
 
-    //这个碎片声明周期是贴在activity上面，用于加载网络数据，在此声明周期中加载网络数据，可以减少网络加载舒红菊的次数。
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
+    //这个碎片声明周期是贴在activity上面，用于加载网络数据，在此声明周期中加载网络数据，可以减少网络加载舒红菊的次数。
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-
-        http=new HttpUtils();
+        //加载数据
+        http= HttpHelper.getHttpUtils();
         eertrd();
+
     }
 
     @Override
@@ -83,9 +89,35 @@ public class First_Fragment extends Fragment implements PullToRefreshBase.OnRefr
         //mlistView.
         View topviewPager= initViews_mylogin(getActivity());
         mlistView.addHeaderView(topviewPager);
-
         adapter=new Firstfragment_lv_Adapter(getActivity(),totailist);
         mlistView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+        http=new HttpUtils();
+        eertrd();
+//        http=new HttpUtils();
+//        eertrd();
+       FirstFragmentBean bean = new FirstFragmentBean();
+        //bean.setTitle("新闻标题");
+        try {
+            DbHelper.getUtils().update(bean, WhereBuilder.b("ScaleType", "=", 2));
+            Selector selector = Selector.from(FirstFragmentBean.class);
+            if (ScaleType != 1){
+                selector.where("ScaleType", "=", ScaleType);
+            }
+            selector.orderBy("Name", true);
+            selector.limit(30);
+            List<FirstFragmentBean> all = DbHelper.getUtils().findAll(selector);
+            if (all != null) {
+                totailist.clear();
+                adapter.addAll(all);
+            }
+        } catch (DbException e) {
+            e.printStackTrace();
+        }
+
+
+
+
         mlistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -144,7 +176,12 @@ public class First_Fragment extends Fragment implements PullToRefreshBase.OnRefr
                         totailist.add(chapterBead);
                     }
                     adapter.addAll(totailist);
-
+                    try {
+                        //把数据保存在数本地表中。
+                        DbHelper.getUtils().saveOrUpdateAll(totailist);
+                    } catch (DbException e) {
+                        e.printStackTrace();
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

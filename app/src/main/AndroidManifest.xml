@@ -94,6 +94,18 @@
             android:name=".activity.SearchActivity"
             android:label="@string/title_activity_search" >
         </activity>
+        <activity
+            android:name=".activity.CamrayActivity"
+            android:label="@string/title_activity_camray" >
+        </activity>
+        <activity
+            android:name=".activity.CommentActivity"
+            android:label="@string/title_activity_comment" >
+        </activity>
+        <activity
+            android:name=".activity.ExamActivity"
+            android:label="@string/title_activity_exam" >
+        </activity>
     </application>
 
 </manifest>

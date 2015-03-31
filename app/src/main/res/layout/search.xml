@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#63B8FF"
+        android:orientation="horizontal">
+        
+    	<SearchView
+    	    android:id="@+id/searchView"
+    	    android:layout_width="0dp"
+    	    android:layout_height="30dp"
+    	    android:layout_weight="2.5"
+    	    android:layout_gravity="center"
+    	    android:layout_margin="3dp"
+    	    android:background="#ffffff"
+    	    android:queryHint="@string/title_search_hint">
+    	    
+    	</SearchView>
+        
+        <Button
+            android:id="@+id/button_cancel"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:text="取消"
+            android:background="#ffffffff"
+            android:layout_gravity="center"
+            android:layout_margin="3dp"
+            android:textSize="15sp"/>
+   </LinearLayout>
+   
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:orientation="horizontal"
+        android:background="#FFEFDB">
+
+         <TextView
+             android:id="@+id/textView_history"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="2"
+             android:text="历史搜索"
+             android:textSize="15sp" />
+        
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/search_clear">
+            
+         </ImageView>
+        	
+   </LinearLayout>
+   
+    <ListView
+        android:id="@+id/listView_search"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5">
+   </ListView>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:orientation="horizontal"
+        android:background="#FFEFDB">
+        
+        <TextView
+            android:id="@+id/textView_history"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="热门搜索"
+            android:textSize="15sp"/>
+        
+        <ImageView
+            android:id="@+id/imageView_trade"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/search_change">
+            
+         </ImageView>
+         
+     </LinearLayout>
+   		
+    	<ListView
+	        android:id="@+id/listView_rsearch"
+	        android:layout_width="match_parent"
+	        android:layout_height="0dp"
+	        android:layout_weight="5">
+   		</ListView>
+    
+    
+
+</LinearLayout>

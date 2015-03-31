@@ -1,10 +1,11 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                android:background="@drawable/main_bg"
                 tools:context="com.kaiser.aaa.myactionbarmenu.activity.Content">
+
 
 
 
@@ -21,110 +22,114 @@
             android:layout_height="match_parent">
 
             <android.support.v4.view.ViewPager
-            android:text="@string/hello_world"
-            android:layout_width="match_parent"
-            android:background="@drawable/loadingimg"
-            android:id="@+id/viewpager_content"
-            android:layout_height="150dp"
-            />
+
+                android:layout_width="match_parent"
+                android:background="@drawable/loadingimg"
+                android:id="@+id/viewpager_content"
+                android:layout_height="150dp"
+                />
             <HorizontalScrollView
                 android:id="@+id/hScrollView_mian_container"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="#fff"
                 android:scrollbars="none">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:id="@+id/layout_content"
-                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:id="@+id/layout_content"
+                    android:layout_height="match_parent">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="5dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:paddingRight="5dp"
-                    android:src="@drawable/newmap_quanjing"/>
-                <TextView
-                    android:id="@+id/text01"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000"
-                    android:layout_marginRight="3dp"
-                    android:clickable="true"
-                    android:text="720全景"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:src="@drawable/rule"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/iv_content_center01"
+                        android:paddingLeft="5dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingRight="5dp"
+                        android:src="@drawable/newmap_quanjing"/>
+                    <TextView
+                        android:id="@+id/tv_content_text01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:layout_marginRight="3dp"
+                        android:clickable="true"
+                        android:text="720全景"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:src="@drawable/rule"/>
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="5dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:paddingRight="5dp"
-                    android:src="@drawable/newmap_tup"/>
-                <TextView
-                    android:id="@+id/text02"
-                    android:layout_width="wrap_content"
-                    android:textColor="#000"
-                    android:padding="3dp"
-                    android:clickable="true"
-                    android:layout_marginRight="3dp"
-                    android:layout_height="wrap_content"
-                    android:text="乐在题中"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:src="@drawable/rule"/>
+                    <ImageView
+                        android:id="@+id/iv_content_center02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingRight="5dp"
+                        android:src="@drawable/newmap_tup"/>
+                    <TextView
+                        android:id="@+id/tv_content_text02"
+                        android:layout_width="wrap_content"
+                        android:textColor="#000"
+                        android:padding="3dp"
+                        android:clickable="true"
+                        android:layout_marginRight="3dp"
+                        android:layout_height="wrap_content"
+                        android:text="乐在题中"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:src="@drawable/rule"/>
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="5dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:paddingRight="5dp"
-                    android:src="@drawable/my_spot_hs"/>
-                <TextView
-                    android:id="@+id/text03"
-                    android:textColor="#000"
-                    android:layout_width="wrap_content"
-                    android:padding="3dp"
-                    android:clickable="true"
-                    android:layout_marginRight="3dp"
-                    android:layout_height="wrap_content"
-                    android:text="查看评论"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:src="@drawable/rule"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="5dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:paddingRight="5dp"
-                    android:src="@drawable/willplay_btn_img"/>
-                <TextView
-                    android:id="@+id/text04"
-                    android:textColor="#000"
-                    android:layout_width="wrap_content"
-                    android:padding="3dp"
-                    android:clickable="true"
-                    android:layout_height="wrap_content"
-                    android:text="必玩推荐"/>
+                    <ImageView
+                        android:id="@+id/iv_content_center03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingRight="5dp"
+                        android:src="@drawable/my_spot_hs"/>
+                    <TextView
+                        android:id="@+id/tv_content_text03"
+                        android:textColor="#000"
+                        android:layout_width="wrap_content"
+                        android:padding="3dp"
+                        android:clickable="true"
+                        android:layout_marginRight="3dp"
+                        android:layout_height="wrap_content"
+                        android:text="查看评论"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:src="@drawable/rule"/>
+                    <ImageView
+                        android:id="@+id/iv_content_center04"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingRight="5dp"
+                        android:src="@drawable/willplay_btn_img"/>
+                    <TextView
+                        android:id="@+id/tv_content_text04"
+                        android:textColor="#000"
+                        android:layout_width="wrap_content"
+                        android:padding="3dp"
+                        android:clickable="true"
+                        android:layout_height="wrap_content"
+                        android:text="必玩推荐"/>
 
 
 
@@ -147,8 +152,25 @@
 
         </LinearLayout>
 
-        </ScrollView>
+    </ScrollView>
+    <TextView
+        android:id="@+id/textview_content_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="16dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="110dp"
 
+        />
+    <TextView
+        android:id="@+id/textview_content_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="130dp"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -159,35 +181,52 @@
         android:background="@drawable/amap_list_bg"
         android:layout_gravity="center_horizontal|bottom"
         android:id="@+id/linearLayout">
-    <ImageView
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="20dp"
-        android:layout_gravity="left|center_vertical"
-        android:clickable="true"
-        android:id="@+id/imageView_conten_buttom_left"
-        android:src="@drawable/amaploaction_btn"
-        />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="20dp"
+            android:layout_gravity="left|center_vertical"
+            android:clickable="true"
+            android:padding="5dp"
+            android:id="@+id/imageView_conten_buttom_left"
+            android:src="@drawable/amaploaction_btn"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:src="@drawable/rule"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:id="@+id/TextView_content_Buttom"
+            android:drawableLeft="@drawable/huobg_img_max"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text=">10km"
+            android:padding="5dp"
+            android:gravity="right|center_vertical"
+            android:layout_gravity="left|center_vertical"
+            />
 
-    <ImageView
-        android:layout_width="0dp"
-        android:layout_weight="5"
-        android:layout_height="20dp"
-        android:id="@+id/imageView_content_buttom_center"
-        android:clickable="true"
-
-        android:src="@drawable/huobg_img_max"
-        android:layout_gravity="left|center_vertical"
-        />
-
-    <ImageView
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="20dp"
-        android:src="@drawable/amapdetail_more"
-        android:id="@+id/imageView_content_buttom_right"
-        android:clickable="true"
-        android:layout_gravity="right|center_vertical"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:src="@drawable/rule"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="20dp"
+            android:padding="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/amapdetail_more"
+            android:id="@+id/imageView_content_buttom_right"
+            android:clickable="true"
+            android:layout_gravity="right|center_vertical"/>
 
     </LinearLayout>
-</RelativeLayout>
+</FrameLayout>
