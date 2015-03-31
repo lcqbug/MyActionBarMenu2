@@ -79,6 +79,8 @@ public class LoginActivity extends ActionBarActivity implements Handler.Callback
                 Toast.makeText(this, "用户名或者密码输入错误", Toast.LENGTH_SHORT).show();
             }
 
+
+
         } else {
             //如果里面没有数据则吐司
             Log.i("TAG", "--->输入邮箱");
@@ -90,7 +92,7 @@ public class LoginActivity extends ActionBarActivity implements Handler.Callback
         //第一件事就是初始化
         ShareSDK.initSDK(this);
         switch (view.getId()) {
-            //点击QQ、微信、新浪分别实现第三方登录
+            //点击QQ、微信、新浪分别实现第三方登录eyuqiengshuai1
             case R.id.login_imageView_qq:
                 //showShare();
                 //从QQ登录
