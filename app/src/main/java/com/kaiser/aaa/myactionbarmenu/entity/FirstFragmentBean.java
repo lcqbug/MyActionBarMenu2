@@ -19,7 +19,7 @@ public class FirstFragmentBean implements Serializable {
     private String id;
 
     @Column(column = "ScaleType")
-    private String type;
+    private int type;
 
     @Column(column = "Name")
     private String name;
@@ -72,6 +72,7 @@ public class FirstFragmentBean implements Serializable {
             this.newPic=jsonObject.getString("NewPic");
             this.Lat=jsonObject.getDouble("Lat");
             this.Lng=jsonObject.getDouble("Lng");
+            this.type=jsonObject.getInt("ScaleType");
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -86,11 +87,11 @@ public class FirstFragmentBean implements Serializable {
         this.id = id;
     }
 
-    public String getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(int type) {
         this.type = type;
     }
 

@@ -3,15 +3,14 @@ package com.kaiser.aaa.myactionbarmenu;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBarActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.kaiser.aaa.myactionbarmenu.activity.LoginActivity;
-import com.kaiser.aaa.myactionbarmenu.activity.SearchActivity;
 import com.kaiser.aaa.myactionbarmenu.adapter.ChatperAdapter;
 import com.kaiser.aaa.myactionbarmenu.mytopmenu.SlidingTabLayout;
 import com.kaiser.aaa.myactionbarmenu.utils.DbHelper;
@@ -24,7 +23,7 @@ import com.zxing.activity.CaptureActivity;
 //主页面 黄科泽
 
 @ContentView(R.layout.activity_main)
-public class MainActivity extends ActionBarActivity implements View.OnClickListener{
+public class MainActivity extends FragmentActivity implements View.OnClickListener{
     private ResideMenu resideMenu;
     //主框架 顶部实现抽屉式的效果。的对象
    // private MenuActivity mContext;
@@ -58,6 +57,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     }
     //主框架的内部框架
     public void initView(){
+        //getChildFragmentManager() 参数用这个
         viewpager_main.setAdapter(new ChatperAdapter(getSupportFragmentManager()));
         tile_main.setViewPager(viewpager_main);
         image_twocode_main.setOnClickListener(this);
@@ -143,9 +143,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             startActivity(openCameraIntent);
         }else if (view == itemSettings){
             //跳转到搜索页面
-            Intent intent=new Intent();
-            intent.setClass(this,SearchActivity.class);
-            startActivity(intent);
+
 
 
         }
@@ -157,9 +155,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 break;
             case R.id.image_search_main:
                 //跳转到搜索页面
-                Intent intent=new Intent();
-                intent.setClass(this,SearchActivity.class);
-                startActivity(intent);
+
                 break;
 
         }

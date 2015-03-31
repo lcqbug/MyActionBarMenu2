@@ -15,6 +15,7 @@ import com.lidroid.xutils.BitmapUtils;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,11 +23,11 @@ import java.util.List;
  */
 public class Firstfragment_lv_Adapter extends BaseAdapter {
     private Context context;
-    private List<FirstFragmentBean> list=null;
+    private List<FirstFragmentBean> list=new ArrayList<>();
 
     public Firstfragment_lv_Adapter(Context context, List<FirstFragmentBean> list) {
         this.context = context;
-        this.list = list;
+      //  this.list = list;
     }
 
     @Override

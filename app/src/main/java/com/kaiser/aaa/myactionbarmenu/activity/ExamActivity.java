@@ -7,19 +7,19 @@ import android.view.MenuItem;
 
 import com.kaiser.aaa.myactionbarmenu.R;
 
-public class SearchActivity extends ActionBarActivity {
+public class ExamActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+        setContentView(R.layout.activity_exam);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_search, menu);
+        getMenuInflater().inflate(R.menu.menu_exam, menu);
         return true;
     }
 
