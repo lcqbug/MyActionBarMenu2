@@ -13,7 +13,7 @@ import com.kaiser.aaa.myactionbarmenu.entity.Content_Info;
 import java.util.List;
 
 /**
- * Created by aaa on 15-3-30.
+ * Created by aaa on 15-3-30.底部中间的菜单弹出的popmenu的listView的适配器
  */
 public class Content_Info_adapter extends BaseAdapter {
     private List<Content_Info> list=null;

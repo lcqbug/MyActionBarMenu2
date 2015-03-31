@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Xml;
 
-import com.kaiser.aaa.myactionbarmenu.utils.PathHelper;
+import com.kaiser.aaa.myactionbarmenu.Utils.PathHelper;
 
 import org.xmlpull.v1.XmlPullParser;
 

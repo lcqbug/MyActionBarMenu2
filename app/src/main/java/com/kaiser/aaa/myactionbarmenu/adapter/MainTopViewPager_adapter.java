@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-public class MainTopViewPager extends PagerAdapter {
+public class MainTopViewPager_adapter extends PagerAdapter {
 	private List<View> list = null;
 
-	public MainTopViewPager(List<View> list) {
+	public MainTopViewPager_adapter(List<View> list) {
 		this.list = list;
 	}
 

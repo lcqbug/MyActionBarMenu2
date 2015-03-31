@@ -1,8 +1,10 @@
 package com.kaiser.aaa.myactionbarmenu.Utils;
 
 import android.content.Context;
+import android.os.Environment;
 import android.widget.ImageView;
 
+import com.kaiser.aaa.myactionbarmenu.R;
 import com.kaiser.aaa.myactionbarmenu.interfaces.CallBackJSONStr;
 import com.lidroid.xutils.BitmapUtils;
 import com.lidroid.xutils.HttpUtils;
@@ -12,10 +14,12 @@ import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 
+import java.io.File;
+
 /**
  * HttpUtils
  * 
- * @author 于新国
+ * @author
  *
  */
 public class HttpHelper {
@@ -32,10 +36,22 @@ public class HttpHelper {
 
 	public static BitmapUtils getBitmapUtils(Context context) {
 		if (bitmapUtils == null) {
-			bitmapUtils = new BitmapUtils(context);
+			//bitmapUtils = new BitmapUtils(context);
+            initUtils(context);
 		}
 		return bitmapUtils;
 	}
+    public static void initUtils(Context context){
+        bitmapUtils = new BitmapUtils(context,
+                new File(Environment.getExternalStorageDirectory(), "HappyTravel").getAbsolutePath(),
+                0.25f);
+        bitmapUtils.configDefaultLoadingImage(R.drawable.loadingimg);
+        bitmapUtils.configDefaultLoadFailedImage(R.drawable.loadingimg);
+        bitmapUtils.configDefaultBitmapMaxSize(100, 100);
+        bitmapUtils.configDefaultCacheExpiry(1000 * 60 * 60 * 24);
+        bitmapUtils.configDefaultConnectTimeout(5000);
+        bitmapUtils.configDefaultReadTimeout(10000);
+    }
 
 	/**
 	 * 获取json数据并解析

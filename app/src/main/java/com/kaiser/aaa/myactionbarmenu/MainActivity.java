@@ -12,8 +12,8 @@ import android.widget.Toast;
 
 import com.kaiser.aaa.myactionbarmenu.activity.LoginActivity;
 import com.kaiser.aaa.myactionbarmenu.adapter.ChatperAdapter;
-import com.kaiser.aaa.myactionbarmenu.mytopmenu.SlidingTabLayout;
-import com.kaiser.aaa.myactionbarmenu.utils.DbHelper;
+import com.kaiser.aaa.myactionbarmenu.MyTopMenu.SlidingTabLayout;
+import com.kaiser.aaa.myactionbarmenu.Utils.DbHelper;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ContentView;
 import com.lidroid.xutils.view.annotation.ViewInject;
