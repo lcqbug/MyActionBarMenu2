@@ -22,7 +22,6 @@ import com.kaiser.aaa.myactionbarmenu.adapter.Firstfragment_lv_Adapter;
 import com.kaiser.aaa.myactionbarmenu.adapter.MainTopViewPager;
 import com.kaiser.aaa.myactionbarmenu.entity.FirstFragmentBean;
 import com.kaiser.aaa.myactionbarmenu.utils.DbHelper;
-import com.kaiser.aaa.myactionbarmenu.utils.HttpHelper;
 import com.kaiser.aaa.myactionbarmenu.utils.PathHelper;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.ViewUtils;
@@ -76,8 +75,8 @@ public class First_Fragment extends Fragment implements PullToRefreshBase.OnRefr
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         //加载数据
-        http= HttpHelper.getHttpUtils();
-        eertrd();
+//        http= HttpHelper.getHttpUtils();
+//        eertrd();
 
     }
 
@@ -94,8 +93,8 @@ public class First_Fragment extends Fragment implements PullToRefreshBase.OnRefr
         adapter.notifyDataSetChanged();
         http=new HttpUtils();
         eertrd();
-//        http=new HttpUtils();
-//        eertrd();
+        http=new HttpUtils();
+        eertrd();
        FirstFragmentBean bean = new FirstFragmentBean();
         //bean.setTitle("新闻标题");
         try {
@@ -198,7 +197,8 @@ public class First_Fragment extends Fragment implements PullToRefreshBase.OnRefr
 
     @Override
     public void onPullUpToRefresh(PullToRefreshBase refreshView) {
-
+        parentId++;
+        eertrd();
     }
 //item的点击事件。
 
